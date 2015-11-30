@@ -1,6 +1,8 @@
 package es.framework.es.framework.ui;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -105,6 +107,16 @@ public class NotepadActivity extends AppCompatActivity {
             case Constants.SETTINGS:
                 Toast.makeText(this,"SETTINGS",Toast.LENGTH_SHORT).show();break;
         }
+    }
+
+    private void openFragment(Fragment fragment,String title){
+        getSupportFragmentManager()
+                .beginTransaction()
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .replace(R.id.container,fragment)
+                .addToBackStack(null)
+                .commit();
+        getSupportActionBar().setTitle(title);
     }
 
 }
