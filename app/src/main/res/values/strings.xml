@@ -15,5 +15,6 @@
     <string name="label_reminder">Reminder</string>
     <string name="label_movie_list">Movie List</string>
     <string name="label_settings">Settings</string>
+    <string name="settings">Settings</string>
 
 </resources>

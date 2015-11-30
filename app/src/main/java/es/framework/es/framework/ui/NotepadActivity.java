@@ -105,7 +105,8 @@ public class NotepadActivity extends AppCompatActivity {
             case Constants.REMINDER:
                 Toast.makeText(this,"REMINDER",Toast.LENGTH_SHORT).show();break;
             case Constants.SETTINGS:
-                Toast.makeText(this,"SETTINGS",Toast.LENGTH_SHORT).show();break;
+                openFragment(new SettingsFragment(),getString(R.string.settings))
+                ;break;
         }
     }
 
