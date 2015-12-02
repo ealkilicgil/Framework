@@ -11,4 +11,6 @@ public class Constants {
     public final static int MOVIE=5;
     public final static int SETTINGS=6;
 
+    public static final String PREFERENCE_NAME="app_preferences";
+
 }
