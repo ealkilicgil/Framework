@@ -4,10 +4,45 @@
     android:layout_height="match_parent"
     tools:context="es.framework.es.framework.ui.SettingsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select default app"
+        android:layout_gravity="left|top" />
+    <RadioGroup
+        android:id="@+id/radioGroupSettings"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_margin="50dp"
+        android:layout_gravity="center_horizontal">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notepad"
+            android:id="@+id/radioButtonNotepad" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Todo List"
+            android:id="@+id/radioButtonTodoList" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Drawing"
+            android:id="@+id/radioButtonDrawing" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reminder"
+            android:id="@+id/radioButtonReminder" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Movie List"
+            android:id="@+id/radioButtonMovieList" />
+    </RadioGroup>
+
+
+
 
 </FrameLayout>

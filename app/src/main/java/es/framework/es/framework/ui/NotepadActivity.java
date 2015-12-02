@@ -1,5 +1,7 @@
 package es.framework.es.framework.ui;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -23,7 +25,9 @@ import es.framework.es.framework.ui.common.Constants;
 public class NotepadActivity extends AppCompatActivity {
 
     private Drawer mDrawer = null;
-
+    private int DEFAULT_APP;
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +42,10 @@ public class NotepadActivity extends AppCompatActivity {
                 .withHeaderBackground(R.drawable.drawer_title)
                 .build();
 
+        mSharedPreferences=getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE);
+        mEditor=mSharedPreferences.edit();
+
+        DEFAULT_APP=mSharedPreferences.getInt(Constants.DEFAULT_APP, 0);
         //build navigation drawer
         mDrawer = new DrawerBuilder()
                 .withAccountHeader(headResult)
@@ -87,7 +95,11 @@ public class NotepadActivity extends AppCompatActivity {
                 .withFireOnInitialOnClick(true)
                 .withSavedInstance(savedInstanceState)
                 .build();
-        onTouchDrawer(Constants.NOTEPAD);
+
+             if(DEFAULT_APP>0)
+                 onTouchDrawer(DEFAULT_APP);
+              else
+               onTouchDrawer(Constants.NOTEPAD);
     }
 
     private void onTouchDrawer(int position){
