@@ -1,4 +1,4 @@
-package es.framework.es.framework.ui;
+package es.framework.es.framework.ui.fragments;
 
 
 import android.content.Context;

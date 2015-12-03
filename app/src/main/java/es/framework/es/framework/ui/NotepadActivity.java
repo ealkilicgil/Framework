@@ -21,6 +21,7 @@ import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 
 import es.framework.R;
 import es.framework.es.framework.ui.common.Constants;
+import es.framework.es.framework.ui.fragments.SettingsFragment;
 
 public class NotepadActivity extends AppCompatActivity {
 
