@@ -27,7 +27,7 @@ public class ForecastActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forecast);
-        mDatasource=new ForecastDataSource(ForecastActivity.this);
+
 
         txtMinTemperature= (EditText) getActionBar().getCustomView().findViewById(R.id.txtMinTemperature);
         txtMinTemperature.setOnEditorActionListener(new TextView.OnEditorActionListener() {
