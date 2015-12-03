@@ -1,22 +1,17 @@
 package es.framework.es.framework.entities;
 
+import com.orm.SugarRecord;
+
 /**
  * Created by 02481552 on 29.11.2015.
  */
-public class TodoItem {
-    private Long id;
+public class TodoItem extends SugarRecord{
+
     private String title;
     private boolean checked;
     private Long dateCreated;
     private Long dateModified;
-    
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;

@@ -3,6 +3,7 @@ package es.framework.es.framework.services;
 
 import java.util.concurrent.Executors;
 
+import es.framework.es.framework.entities.Forecast;
 import retrofit.Call;
 import retrofit.Callback;
 import retrofit.GsonConverterFactory;

@@ -1,15 +1,19 @@
 package es.framework.es.framework.entities;
 
+import com.orm.SugarRecord;
+
 /**
  * Created by 02481552 on 29.11.2015.
  */
-public class Note {
-    private Long id;
+public class Note extends SugarRecord{
+
     private String title;
     private String content;
     private int color;
     private Long dateCreated;
     private Long dateModified;
+
+    public Note(){}
     public Long getDateModified() {
         return dateModified;
     }
@@ -18,13 +22,6 @@ public class Note {
         this.dateModified = dateModified;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;

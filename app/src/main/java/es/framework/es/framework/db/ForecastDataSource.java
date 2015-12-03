@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import es.framework.es.framework.services.Forecast;
+import es.framework.es.framework.entities.Forecast;
 
 
 /**

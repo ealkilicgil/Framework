@@ -1,11 +1,13 @@
-package es.framework.es.framework.services;
+package es.framework.es.framework.entities;
+
+import com.orm.SugarRecord;
 
 import java.util.List;
 
 /**
  * Created by 02481552 on 11.10.2015.
  */
-public class Forecast {
+public class Forecast extends SugarRecord{
     public HourlyForecast hourly;
 
     public class HourlyForecast{
