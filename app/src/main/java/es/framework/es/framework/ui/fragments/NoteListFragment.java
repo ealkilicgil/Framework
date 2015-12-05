@@ -19,7 +19,12 @@ import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
+import java.util.List;
+
 import es.framework.R;
+import es.framework.es.framework.db.NoteDataSource;
+import es.framework.es.framework.entities.Note;
+import es.framework.es.framework.ui.adapters.NoteListAdapter;
 
 
 public class NoteListFragment extends Fragment {
@@ -28,6 +33,9 @@ public class NoteListFragment extends Fragment {
     private View mRootView=null;
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
+    private NoteListAdapter mAdapter;
+    private List<Note> mNotes;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -94,6 +102,10 @@ public class NoteListFragment extends Fragment {
         mLayoutManager=new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setHasFixedSize(true);
+        NoteDataSource notesDatasource=new NoteDataSource();
+        mNotes= notesDatasource.SampleTestData();
+        mAdapter=new NoteListAdapter(getActivity(),mNotes);
+        mRecyclerView.setAdapter(mAdapter);
 
         FloatingActionButton fab= (FloatingActionButton) mRootView.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
