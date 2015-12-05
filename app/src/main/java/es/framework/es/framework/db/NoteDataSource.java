@@ -2,6 +2,7 @@ package es.framework.es.framework.db;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import es.framework.es.framework.entities.Note;
 
@@ -26,6 +27,10 @@ public class NoteDataSource {
         _note.setDateModified(calendar.getTimeInMillis());
         _note.save();
         return _note;
+    }
+
+    public List<Note> GetNotes(){
+        return Note.listAll(Note.class);
     }
 
 }
