@@ -21,6 +21,7 @@ import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 
 import es.framework.R;
 import es.framework.es.framework.ui.common.Constants;
+import es.framework.es.framework.ui.fragments.LinedEditFragment;
 import es.framework.es.framework.ui.fragments.SettingsFragment;
 
 public class NotepadActivity extends AppCompatActivity {
@@ -106,7 +107,7 @@ public class NotepadActivity extends AppCompatActivity {
     private void onTouchDrawer(int position){
         switch(position){
             case Constants.NOTEPAD:
-              //  startActivity(new Intent(this,NotepadActivity.class));
+                openFragment(new LinedEditFragment(),getString(R.string.label_notepad));
                 break;
 
             case Constants.DRAWING:

@@ -1,9 +1,15 @@
 package es.framework.es.framework.ui.fragments;
 
 import android.app.Fragment;
-import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.materialdrawer.AccountHeader;
@@ -19,6 +25,9 @@ import es.framework.R;
 public class NoteListFragment extends Fragment {
 
     private Drawer mDrawer=null;
+    private View mRootView=null;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -72,11 +81,28 @@ public class NoteListFragment extends Fragment {
     }
 
 
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        mRootView=super.onCreateView(inflater, container, savedInstanceState);
+        initView();
+        return mRootView;
+    }
 
+    private void initView() {
+        mRecyclerView= (RecyclerView) mRootView.findViewById(R.id.note_recyclerView);
+        mLayoutManager=new LinearLayoutManager(getActivity());
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setHasFixedSize(true);
 
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        public void onFragmentInteraction(Uri uri);
+        FloatingActionButton fab= (FloatingActionButton) mRootView.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "Replace with your action", Snackbar.LENGTH_SHORT).setAction("Action",null).show();
+
+            }
+        });
     }
 
 }

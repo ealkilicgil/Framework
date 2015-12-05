@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".es.framework.ui.fragments.LinedEditFragment"
+    android:orientation="vertical">
+
+    <EditText
+    android:id="@+id/edit_text_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="@string/enter_title"
+    android:gravity="start"
+    android:singleLine="true"
+    android:textStyle="bold"
+    android:padding="4dp"/>
+
+    <es.framework.es.framework.ui.controls.LinedEditText
+        android:id="@+id/edit_text_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:fadingEdge="vertical"
+        android:capitalize="sentences"
+        android:layout_weight="1"
+        android:gravity="top"
+        android:singleLine="true"
+        android:textStyle="bold"
+        android:layout_margin="5dp"
+        android:padding="4dp"
+        android:inputType="textMultiLine"/>
+
+</LinearLayout>
