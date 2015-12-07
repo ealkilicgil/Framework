@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.List;
 
@@ -25,9 +27,11 @@ import es.framework.R;
 import es.framework.es.framework.db.NoteDataSource;
 import es.framework.es.framework.entities.Note;
 import es.framework.es.framework.ui.adapters.NoteListAdapter;
+import es.framework.es.framework.ui.adapters.OnStartDragListener;
+import es.framework.es.framework.ui.adapters.SimpleItemTouchHelperCallback;
 
 
-public class NoteListFragment extends Fragment {
+public class NoteListFragment extends Fragment implements OnStartDragListener{
 
     private Drawer mDrawer=null;
     private View mRootView=null;
@@ -35,7 +39,7 @@ public class NoteListFragment extends Fragment {
     private RecyclerView.LayoutManager mLayoutManager;
     private NoteListAdapter mAdapter;
     private List<Note> mNotes;
-
+    private ItemTouchHelper mItemTouchHelper;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -104,8 +108,11 @@ public class NoteListFragment extends Fragment {
         mRecyclerView.setHasFixedSize(true);
         NoteDataSource notesDatasource=new NoteDataSource();
         mNotes= notesDatasource.SampleTestData();
-        mAdapter=new NoteListAdapter(getActivity(),mNotes);
-        mRecyclerView.setAdapter(mAdapter);
+        mAdapter=new NoteListAdapter(getActivity(),mNotes,this);
+        ItemTouchHelper.Callback callback= new SimpleItemTouchHelperCallback(mAdapter);
+        mItemTouchHelper=new ItemTouchHelper(callback);
+        mItemTouchHelper.attachToRecyclerView(mRecyclerView);
+
 
         FloatingActionButton fab= (FloatingActionButton) mRootView.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -115,6 +122,15 @@ public class NoteListFragment extends Fragment {
 
             }
         });
+        mRecyclerView.addItemDecoration(new HorizontalDividerItemDecoration.Builder(getActivity())
+                                            .color(R.color.primary_dark)
+                                            .size(2).build()
+        );
+        mRecyclerView.setAdapter(mAdapter);
     }
 
+    @Override
+    public void OnStartDrag(RecyclerView.ViewHolder viewHolder) {
+        mItemTouchHelper.startDrag(viewHolder);
+    }
 }
