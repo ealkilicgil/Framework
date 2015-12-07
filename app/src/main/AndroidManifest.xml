@@ -18,19 +18,19 @@
         <meta-data android:name="QUERY_LOG" android:value="true" />
         <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.example" />
 
-        <activity android:name=".es.framework.ui.AnimationActivity"></activity>
-        <activity android:name=".es.framework.ui.PopupActivity"></activity>
-        <activity android:name=".es.framework.ui.TextToVoiceActivity">
+        <activity android:name=".ui.AnimationActivity"></activity>
+        <activity android:name=".ui.PopupActivity"></activity>
+        <activity android:name=".ui.TextToVoiceActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".es.framework.ui.RadioButtonActivity" />
+                android:value=".ui.RadioButtonActivity" />
         </activity>
-        <activity android:name=".es.framework.ui.RadioButtonActivity"></activity>
-        <activity android:name=".es.framework.ui.MainActivity">
+        <activity android:name=".ui.RadioButtonActivity"></activity>
+        <activity android:name=".ui.MainActivity">
 
         </activity>
-        <activity android:name=".es.framework.ui.ForecastActivity"></activity>
-        <activity android:name=".es.framework.ui.NotepadActivity">
+        <activity android:name=".ui.ForecastActivity"></activity>
+        <activity android:name=".ui.NotepadActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

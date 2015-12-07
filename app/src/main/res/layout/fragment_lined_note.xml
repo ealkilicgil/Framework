@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".es.framework.ui.fragments.LinedEditFragment"
+    tools:context=".ui.fragments.LinedEditFragment"
     android:orientation="vertical">
 
     <EditText
@@ -15,7 +15,7 @@
     android:textStyle="bold"
     android:padding="4dp"/>
 
-    <es.framework.es.framework.ui.controls.LinedEditText
+    <es.framework.ui.controls.LinedEditText
         android:id="@+id/edit_text_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
